@@ -1,0 +1,6 @@
+**A Implementation and Testing (50%)**
+- By comparing the path lengths and total costs obtained with the Manhattan distance heuristic and the obstacle-aware heuristic, while the Manhattan distance heuristic provides a simple and efficient estimate of the shortest path length, the obstacle-aware heuristic may offer a more accurate representation of the actual path length and movement cost by considering the presence of obstacles. However, it may result in longer paths and higher total costs due to the additional considerations for obstacle avoidance.
+
+**Visualisation (10%)**
+- Overall, the A* algorithm is highly effective for robot pathfinding in grid-based environments, offering completeness, optimality,    and efficiency when coupled with appropriate heuristic functions. Its ability to find optimal paths while efficiently exploring the search space makes it a preferred choice for many robotic applications.
+- Considering real-world limitations like sensor noise, dynamic obstacles, uncertain environments, and resource constraints requires modifications and enhancements to the base A* approach. By incorporating adaptive strategies, dynamic replanning mechanisms, and robust perception techniques, A* can be tailored to navigate complex real-world scenarios effectively.
