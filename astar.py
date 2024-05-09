@@ -15,7 +15,7 @@ def cost_function(d):
         return 2
     elif d == 'S' or d == 'N':
         # Lower cost for moving south or north
-        return 1
+        return 2
     else:
         # Default cost for other actions (should not happen)
         return 1
@@ -59,18 +59,20 @@ def aStar(m):
                     f_score[childCell] = temp_f_score
                     open.put((temp_f_score, childCell))
                     aPath[childCell] = currCell
-                    fullCost += cost_function(d)
+                
                     
 
     fwdPath = {}
     cell = (1, 1)
     while cell != start:
         fwdPath[aPath[cell]] = cell
+        fullCost += cost_function(d)  # Add the cost of the direction to the full cost
+        print("\nCost for Moving: ", fullCost)
         cell = aPath[cell]
     return fwdPath, fullCost
 
 if __name__ == '__main__':
-    m = maze(10, 20)
+    m = maze(5, 5)
     m.CreateMaze()
     path, fullCost = aStar(m)
 
@@ -79,6 +81,7 @@ if __name__ == '__main__':
     l = textLabel(m, 'A Star Path Length', len(path) + 1)
     i = textLabel(m, 'Manhattan Distance' , heuristic((1, 1), (m.rows, m.cols))+1)
     j = textLabel(m, 'Total Movement Cost for A* is ', fullCost)
-    print("All States in the Grid: \n",m.grid)
+    print(" ")
+    print("All States in the Grid: \n",m.grid,"\n")
     
     m.run()
